@@ -142,6 +142,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return grid;
     }
+    function getRandomPattern() {
+        let pattern = [];
+        for (let i = 0; i < 10; i++) {
+            pattern.push(Math.floor(Math.random() * 10));
+        }
+        return pattern;
+    }
 
     function drawMap(simplex, scale, octaves, persistence, threshold) {
         const noiseGrid = generateNoiseGrid(
@@ -158,12 +165,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         ctx.strokeStyle = "rgb(259, 254, 254)";
         ctx.lineWidth = 2;
+        ctx.save();
         contours.forEach(([start, end]) => {
             ctx.beginPath();
+            ctx.setLineDash(getRandomPattern());
             ctx.moveTo(start.x, start.y);
             ctx.lineTo(end.x, end.y);
             ctx.stroke();
         });
+        ctx.restore();
     }
 
     function drawGrids(ctx, width, height, numRows, numCols) {
