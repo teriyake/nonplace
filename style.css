@@ -1,0 +1,123 @@
+body {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+canvas {
+    display: none;
+    height: 60vh;
+    /*background-color: rgb(219, 244, 244);*/
+    background-color: rgb(170, 188, 171);
+}
+button {
+    border-radius: 0%;
+    font-size: 12px;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: rgb(170, 188, 171) transparent rgb(170, 188, 171) transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#loading-screen {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#parameters {
+    font-size: 12px;
+    display: grid;
+    gap: 1vh;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#scale-slider {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 0.5fr);
+}
+
+#octaves-slider {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 0.5fr);
+}
+
+#persistence-slider {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 0.5fr);
+}
+
+#threshold-slider {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 0.5fr);
+}
+
+.square-btn {
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(171, 188, 171);
+    background: white;
+}
+
+.square-btn:hover {
+    background: rgb(171, 188, 171);
+    color: white;
+}
+input[type="range"] {
+    -webkit-appearance: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    background: rgb(171, 188, 171);
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    border-right: solid rgb(108, 108, 108) 2px;
+    border-bottom: solid rgb(108, 108, 108) 2px;
+    background: white;
+}
